@@ -79,10 +79,17 @@ module RailsWizard
       end 
     end
 
+    class MultipleSelection < Prompt
+      def question
+        "multiple_selection(#{prompt.inspect}, #{@details['choices'].inspect})"
+      end
+    end
+
     QUESTION_TYPES = {
       'boolean' => TrueFalse,
       'string' => Prompt,
-      'multiple_choice' => MultipleChoice
+      'multiple_choice' => MultipleChoice,
+      'multiple_selection' => MultipleSelection
     }
   end
 end
